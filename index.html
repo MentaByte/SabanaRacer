@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabana Racer · Motociclismo Consciente</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 1200px;
+            width: 100%;
+            padding: 2rem 1.5rem 3rem;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #ECBA46;
+            padding-bottom: 2rem;
+        }
+
+        .logo {
+            max-width: 320px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 0.5rem;
+        }
+
+        .card {
+            background-color: #0c0c0c;
+            border: 1px solid #ECBA46;
+            border-radius: 32px;
+            padding: 2.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 30px -10px rgba(236, 186, 70, 0.15);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.01);
+            border-color: #f5cf86;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .gold {
+            color: #ECBA46;
+        }
+
+        .lead {
+            font-size: 1.4rem;
+            font-weight: 400;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 1.5rem auto;
+            color: #e0e0e0;
+        }
+
+        .eslogan {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #ECBA46;
+            text-align: center;
+            margin: 1rem 0 0.5rem 0;
+            border-top: 2px dashed #ECBA46;
+            padding-top: 2rem;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            max-width: 600px;
+            margin: 2rem auto 1rem;
+        }
+
+        .pillar-item {
+            background: #1f1f1f;
+            padding: 0.8rem 0.5rem;
+            border-radius: 60px;
+            border-left: 4px solid #ECBA46;
+            color: #ECBA46;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .highlight-block {
+            background-color: #1a1a1a;
+            border-radius: 24px;
+            padding: 1.8rem;
+            margin: 2rem 0;
+            border-left: 8px solid #ECBA46;
+            font-size: 1.3rem;
+        }
+
+        .btn-wa {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            background-color: #ECBA46;
+            color: #000000;
+            font-weight: 700;
+            font-size: 1.5rem;
+            padding: 1.2rem 3rem;
+            border-radius: 60px;
+            text-decoration: none;
+            margin: 2rem 0 1rem;
+            border: 2px solid #ECBA46;
+            transition: all 0.2s;
+            box-shadow: 0 4px 0 #9e7a2e;
+            letter-spacing: -0.3px;
+        }
+
+        .btn-wa:hover {
+            background-color: transparent;
+            color: #ECBA46;
+            box-shadow: 0 4px 0 #ECBA46;
+        }
+
+        .wa-icon {
+            width: 32px;
+            height: 32px;
+            background-color: transparent;
+        }
+
+        .btn-wa:hover .wa-icon {
+            filter: brightness(0) invert(1);
+        }
+
+        /* REGLAS EN FORMATO 3 + 2 - DEFINITIVAMENTE CORREGIDO */
+        .reglas-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            width: 100%;
+        }
+
+        .fila-superior {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .fila-inferior {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .regla-item {
+            background: #111111;
+            border-radius: 20px;
+            padding: 0.8rem 1.2rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid #ECBA46;
+            color: #ECBA46;
+            min-width: 170px;
+            flex: 0 1 auto;
+        }
+
+        .regla-item span {
+            display: block;
+            font-size: 1.8rem;
+            color: #ECBA46;
+            margin-bottom: 0.2rem;
+        }
+
+        .legal {
+            background-color: #050505;
+            border-radius: 20px;
+            padding: 1.5rem;
+            font-size: 0.95rem;
+            color: #b0b0b0;
+            border: 1px solid #ECBA46;
+            margin-top: 1.5rem;
+        }
+
+        .legal strong {
+            color: #ECBA46;
+        }
+
+        .footer-note {
+            color: #5a5a5a;
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 700px) {
+            h1 { font-size: 2.2rem; }
+            .lead { font-size: 1.2rem; }
+            .eslogan { font-size: 1.6rem; }
+            .pillar-item { font-size: 1rem; }
+            .btn-wa { font-size: 1.2rem; padding: 1rem 2rem; }
+            .regla-item { min-width: 140px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- HEADER con logo -->
+        <div class="header">
+            <img 
+                src="logo sabana racer.webp" 
+                alt="Sabana Racer · logo" 
+                class="logo"
+                onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22320%22%20height%3D%22120%22%20viewBox%3D%220%200%20320%20120%22%3E%3Crect%20width%3D%22320%22%20height%3D%22120%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2270%22%20font-family%3D%22Arial%22%20font-size%3D%2228%22%20fill%3D%22%23ECBA46%22%20font-weight%3D%22bold%22%3ESABANA%20RACER%3C%2Ftext%3E%3C%2Fsvg%3E';"
+            >
+        </div>
+
+        <!-- PRIMERA TARJETA: identidad y filosofía -->
+        <div class="card">
+            <h1>
+                <span class="gold">SOMOS TRIBU,</span><br>
+                SOMOS CAMINANTES
+            </h1>
+            <p class="lead">
+                Amantes de las máquinas, de las rutas y del buen CAFÉ.
+            </p>
+            <div class="eslogan">
+                "Motociclismo Consciente"
+            </div>
+
+            <!-- PILLARS EN GRILLA 2x2 -->
+            <div class="pillars-grid">
+                <div class="pillar-item">Mentalidad</div>
+                <div class="pillar-item">Liderazgo</div>
+                <div class="pillar-item">Alto Desempeño</div>
+                <div class="pillar-item">Propósito</div>
+            </div>
+
+            <div class="highlight-block">
+                <p style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem;"><span class="gold">Coaching Experiencial</span> en dos ruedas</p>
+                <p>por la Sabana de Cundinamarca. Las máquinas, las rutas y un buen paseo por la <strong class="gold">SABANA</strong> son la mejor herramienta para <strong class="gold">HACKEAR</strong> la mente, la rutina y la realidad.</p>
+            </div>
+        </div>
+
+        <!-- TARJETA DE NO-CLUB Y RESTRICCIONES -->
+        <div class="card">
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <span style="background: #ECBA46; color: black; font-weight: 800; padding: 0.3rem 2rem; border-radius: 60px; font-size: 1.6rem;">❌ NO SOMOS CLUB</span>
+            </div>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">
+                No tenemos estatutos, reglamentos, juntas directivas, etc.
+            </p>
+
+            <h2 style="color: #ECBA46; margin: 2rem 0 1rem; font-weight: 600; border-bottom: 2px solid #ECBA46; padding-bottom: 0.5rem;">
+                En esta comunidad:
+            </h2>
+
+            <!-- REGLAS CORREGIDAS: DEFINITIVAMENTE 3 ARRIBA, 2 ABAJO -->
+            <div class="reglas-container">
+                <!-- FILA SUPERIOR: 3 ELEMENTOS -->
+                <div class="fila-superior">
+                    <div class="regla-item"><span>🚫</span> NO VENTAS</div>
+                    <div class="regla-item"><span>🚫</span> NO publicidad / SPAM</div>
+                    <div class="regla-item"><span>🚫</span> NO cadenas, memes</div>
+                </div>
+                <!-- FILA INFERIOR: 2 ELEMENTOS -->
+                <div class="fila-inferior">
+                    <div class="regla-item"><span>🚫</span> NO política / religión / polémica</div>
+                    <div class="regla-item"><span>🚫</span> NO promoción externa sin verificar</div>
+                </div>
+            </div>
+
+            <p style="font-size: 1.1rem; background: #222; padding: 1rem; border-radius: 20px; margin-top: 1rem;">
+                <span class="gold">No se permite invitar a rodadas, excursiones o actividades externas sin previa verificación.</span>
+            </p>
+        </div>
+
+        <!-- ACCESO A LA COMUNIDAD -->
+        <div class="card" style="text-align: center;">
+            <h2 style="font-size: 2.2rem; margin-bottom: 1rem; color: #ECBA46;">
+                ¿Quieres ingresar?
+            </h2>
+            <p style="font-size: 1.3rem; max-width: 600px; margin: 0 auto 0.5rem;">
+                Contacta a su creador:
+            </p>
+            <strong style="color: #ECBA46; display: block; font-size: 2rem; margin: 0.5rem 0;">Alfonso Rocha</strong>
+
+            <!-- BOTÓN WHATSAPP CON LOGO CORREGIDO -->
+            <a href="https://wa.me/573202709015?text=Hola%20Alfonso%2C%20quiero%20ser%20parte%20de%20Sabana%20Racer" 
+               class="btn-wa"
+               target="_blank"
+               rel="noopener noreferrer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp" class="wa-icon">
+                Escribir por WhatsApp
+            </a>
+            <p style="font-size: 0.9rem; color: #aaa; margin-top: 0.5rem;">
+                +57 320 2709015
+            </p>
+
+            <div style="margin: 2rem auto 0; max-width: 500px;">
+                <p style="font-size: 1.1rem; border: 2px solid #ECBA46; border-radius: 40px; padding: 0.8rem; color: #ECBA46;">
+                    ⚠️ Nos reservamos el derecho de admisión y permanencia.
+                </p>
+            </div>
+        </div>
+
+        <!-- TÉRMINOS LEGALES / RESPONSABILIDAD -->
+        <div class="legal">
+            <p style="margin-bottom: 1rem;">
+                <strong>Al ingresar y permanecer</strong> en esta comunidad de WhatsApp ENTIENDES y ACEPTAS que tu participación en cualquiera de las actividades de Sabana Racer es de <strong class="gold">absoluta responsabilidad personal</strong>, por tanto NO representa responsabilidad alguna para el creador ni para los administradores.
+            </p>
+            <p style="font-style: italic; color: #ECBA46;">
+                “Somos caminantes, amamos las máquinas, las rutas y el buen café. Esto es motociclismo consciente.”
+            </p>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer-note">
+            ⚡ Sabana Racer · Motociclismo Consciente ⚡
+        </div>
+    </div>
+</body>
+</html>
